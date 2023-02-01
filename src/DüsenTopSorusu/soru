@@ -1,0 +1,5 @@
+ **Belirli bir yükseklikten bırakılan bir top yere her
+  çarptığında bir önceki yüksekliğinin 3/4'ü kadar sıçrayabiliyor.
+  *Son sıçrama yüksekliği 1 metrenin altına düştüğünde bir daha zıplamamaktadır.
+  **Buna göre klavyeden girilen yükseklikten bırakılan topun kaç defa sıçrayacağını
+  ve toplam alacağı yolu cm cinsinden hesaplayan bir code create ediniz.
