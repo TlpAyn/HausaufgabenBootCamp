@@ -3,6 +3,9 @@ package Utility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 import java.util.logging.Level;
@@ -22,7 +25,15 @@ public class BaseDriver {
         // outputtaki gerekmeyen logları kaldıracağız
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
 
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+
         driver = new ChromeDriver();
+
+
+//        driver = new EdgeDriver();
+//        driver = new FirefoxDriver();
 
         driver.manage().window().maximize(); // Ekranı max yapıyor.
 
