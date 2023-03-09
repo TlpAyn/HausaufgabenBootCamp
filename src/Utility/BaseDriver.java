@@ -13,31 +13,30 @@ import java.util.logging.Logger;
 
 
 public class BaseDriver {
-     public static WebDriver driver;
+    public static WebDriver driver;
 
-    static
-    {
+    static {
         KalanOncekileriKapat();
 
-        Logger logger= Logger.getLogger(""); // output a ait bütün logları üreten objeye/servise ulaştım ""
+        Logger logger = Logger.getLogger(""); // output a ait bütün logları üreten objeye/servise ulaştım ""
         logger.setLevel(Level.SEVERE); // Sadece errorları göster
 
         // outputtaki gerekmeyen logları kaldıracağız
-//        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-//
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--remote-allow-origins=*");
-//        driver = new ChromeDriver(options);
-//
-//        driver = new ChromeDriver();
+        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
 
 
-        driver = new EdgeDriver();
+
+
+//        driver = new EdgeDriver();
 //        driver = new FirefoxDriver();
 
         driver.manage().window().maximize(); // Ekranı max yapıyor.
 
-        Duration dr=Duration.ofSeconds(30);
+        Duration dr = Duration.ofSeconds(30);
         driver.manage().timeouts().pageLoadTimeout(dr);
         // Sadece tüm sayfanın kodlarının bilgisyarınıza inmesi süresiyle ilgili
         // bu eklenmezse Selenium sayfa yüklenene kadar (sonsuza) bekler.:
@@ -49,23 +48,23 @@ public class BaseDriver {
     }
 
 
-
-    public static void BekleKapat()
-    {
+    public static void BekleKapat() {
         MyFunc.Bekle(3);
         driver.quit();
     }
-public static void Bekle(int saniye){
+
+    public static void Bekle(int saniye) {
 
         MyFunc.Bekle(saniye);
-}
-    public static void SiteyeGit(String site){
+    }
+
+    public static void SiteyeGit(String site) {
 
         driver.get(site);
 
     }
 
-        public static void KalanOncekileriKapat() {
+    public static void KalanOncekileriKapat() {
 
         try {
             Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
