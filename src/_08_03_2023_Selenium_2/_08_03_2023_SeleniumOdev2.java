@@ -311,88 +311,147 @@ public class _08_03_2023_SeleniumOdev2 extends BaseDriver {
 
     @Test
     public void Test15() {
-        driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
+        driver.get("http://demo.seleniumeasy.com/basic-first-form-demo.html");
 
-        WebElement checkAll = driver.findElement(By.id("check1"));
-        checkAll.click();
+        WebElement entera = driver.findElement(By.id("sum1"));
+        entera.sendKeys("2");
+
+        WebElement enterb = driver.findElement(By.id("sum2"));
+        enterb.sendKeys("3");
 
 
-        WebElement UncheckAll = driver.findElement(By.xpath("//input[@value='Uncheck All']"));
-        Assert.assertTrue(UncheckAll.isDisplayed());
+        WebElement submit = driver.findElement(By.xpath("//button[@onclick='return total()']"));
+        submit.click();
+
+
+        WebElement sonuc = driver.findElement(By.id("displayvalue"));
+        System.out.println("sonuc = " + sonuc.getText());
 
 
     }
 
     @Test
     public void Test16() {
-        driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
+        driver.get("http://demo.seleniumeasy.com/basic-first-form-demo.html");
 
-        WebElement checkAll = driver.findElement(By.id("check1"));
-        checkAll.click();
+        WebElement inputForms = driver.findElement(By.xpath("//a[text()='Input Forms']"));
+        inputForms.click();
 
+        WebElement RadioButtons = driver.findElement(By.linkText("Radio Buttons Demo"));
+        RadioButtons.click();
+        WebElement checkButton = driver.findElement(By.id("buttoncheck"));
+        checkButton.click();
+        WebElement radiobutton = driver.findElement(By.xpath("//p[@class='radiobutton']"));
+        Assert.assertEquals("Radio button is Not checked", radiobutton.getText());
+        WebElement MAle = driver.findElement(By.xpath("//input[@value='Male'  and @name='optradio']"));
+        MAle.click();
+        checkButton.click();
+        Assert.assertEquals("Radio button 'Male' is checked", radiobutton.getText());
 
-        WebElement UncheckAll = driver.findElement(By.xpath("//input[@value='Uncheck All']"));
-        Assert.assertTrue(UncheckAll.isDisplayed());
+        WebElement FamAle = driver.findElement(By.xpath("//input[@value='Female'  and @name='optradio']"));
+        FamAle.click();
+        checkButton.click();
+        Assert.assertEquals("Radio button 'Female' is checked", radiobutton.getText());
+
+//        WebElement RadioButtons = driver.findElement(By.linkText("Radio Buttons Demo"));
+//        RadioButtons.click();
+//
+//
+//
+//        WebElement UncheckAll = driver.findElement(By.xpath("//input[@value='Uncheck All']"));
+//        Assert.assertTrue(UncheckAll.isDisplayed());
     }
 
     @Test
     public void Test17() {
-        driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
+        driver.get("http://demo.seleniumeasy.com/basic-first-form-demo.html");
 
-        WebElement checkAll = driver.findElement(By.id("check1"));
-        checkAll.click();
+        WebElement inputForms = driver.findElement(By.xpath("//a[text()='Input Forms']"));
+        inputForms.click();
+
+        WebElement RadioButtons = driver.findElement(By.linkText("Radio Buttons Demo"));
+        RadioButtons.click();
+
+        WebElement Malealt = driver.findElement(By.xpath("//input[@value='Male' and @name='gender']"));
+        Malealt.click();
 
 
-        WebElement UncheckAll = driver.findElement(By.xpath("//input[@value='Uncheck All']"));
-        Assert.assertTrue(UncheckAll.isDisplayed());
+        WebElement Age = driver.findElement(By.xpath("//input[@value='0 - 5']"));
+        Age.click();
+
+        WebElement GetValues = driver.findElement(By.xpath("//button[@onclick='getValues();']"));
+        GetValues.click();
+
+        WebElement Sonuc = driver.findElement(By.xpath("//p[@class='groupradiobutton']"));
+        System.out.println(Sonuc.getText());
+
+        WebElement Age15_50 = driver.findElement(By.xpath("//input[@value='15 - 50']"));
+        Age15_50.click();
+
+        GetValues.click();
+
+        System.out.println(Sonuc.getText());
+
+        WebElement Age5_15 = driver.findElement(By.xpath("//input[@value='5 - 15']"));
+        Age5_15.click();
+
+        GetValues.click();
+
+        System.out.println(Sonuc.getText());
+
+
+
     }
 
     @Test
     public void Test18() {
-        driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
+        driver.get("http://demo.seleniumeasy.com/table-search-filter-demo.html");
 
-        WebElement checkAll = driver.findElement(By.id("check1"));
-        checkAll.click();
+        WebElement ProgressKutusu = driver.findElement(By.id("task-table-filter"));
+        ProgressKutusu.sendKeys("in progress");
 
 
-        WebElement UncheckAll = driver.findElement(By.xpath("//input[@value='Uncheck All']"));
-        Assert.assertTrue(UncheckAll.isDisplayed());
+        List<WebElement> inprogress = driver.findElements(By.xpath("//tr"));
+
+
+
+        for (int i = 1; i <9 ; i++) {
+
+            System.out.println(inprogress.get(i).getText());
+
+        }
     }
 
     @Test
     public void Test19() {
-        driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
+        driver.get("http://demo.seleniumeasy.com/table-search-filter-demo.html");
 
-        WebElement checkAll = driver.findElement(By.id("check1"));
-        checkAll.click();
+        WebElement Filter = driver.findElement(By.xpath("//span[@class='glyphicon glyphicon-filter']"));
+        Filter.click();
 
+        WebElement FirstName = driver.findElement(By.xpath("//input[@placeholder='First Name']"));
+        FirstName.sendKeys("an");
 
-        WebElement UncheckAll = driver.findElement(By.xpath("//input[@value='Uncheck All']"));
-        Assert.assertTrue(UncheckAll.isDisplayed());
-    }
+        WebElement AnliIsimler = driver.findElement(By.xpath("(//tbody)[2]"));
+        System.out.println(AnliIsimler.getText());
+        }
 
     @Test
     public void Test20() {
-        driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
+        driver.get("https://en.wikipedia.org/wiki/FIFA_World_Cup");
 
-        WebElement checkAll = driver.findElement(By.id("check1"));
-        checkAll.click();
+       List<WebElement> Lists = driver.findElements(By.xpath("//li[@class='vector-toc-list-item vector-toc-level-1']"));
+        for (WebElement liste:
+             Lists) {
 
+            System.out.println(liste.getText());
+        }
 
-        WebElement UncheckAll = driver.findElement(By.xpath("//input[@value='Uncheck All']"));
-        Assert.assertTrue(UncheckAll.isDisplayed());
     }
 
     @Test
     public void Test21() {
-        driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
 
-        WebElement checkAll = driver.findElement(By.id("check1"));
-        checkAll.click();
-
-
-        WebElement UncheckAll = driver.findElement(By.xpath("//input[@value='Uncheck All']"));
-        Assert.assertTrue(UncheckAll.isDisplayed());
     }
 
 
