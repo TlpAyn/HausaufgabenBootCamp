@@ -1,7 +1,7 @@
 package _28_02_2023_Action_Class;
 
-import Utility.BaseDriver;
-import Utility.MyFunc;
+import Utlity.BaseDriver;
+import Utlity.MyFunc;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

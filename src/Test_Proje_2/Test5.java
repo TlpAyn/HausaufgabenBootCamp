@@ -1,7 +1,7 @@
 package Test_Proje_2;
 
-import Utility.BaseDriver;
-import Utility.MyFunc;
+import Utlity.BaseDriver;
+import Utlity.MyFunc;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;

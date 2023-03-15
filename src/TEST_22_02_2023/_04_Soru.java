@@ -1,6 +1,6 @@
 package TEST_22_02_2023;
 
-import Utility.BaseDriver;
+import Utlity.BaseDriver;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

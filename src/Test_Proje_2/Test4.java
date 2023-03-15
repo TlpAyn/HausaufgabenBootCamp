@@ -1,6 +1,6 @@
 package Test_Proje_2;
 
-import Utility.BaseDriver;
+import Utlity.BaseDriver;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
